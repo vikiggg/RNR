@@ -35,13 +35,14 @@ For each selected store, we have its unique location in latitude and longitude, 
 
 \
 ![heatmap](heatmap.png)
+\
 Map of top-rated snack locations in Greater Vancouver.
 
 \
 As the above map shows, 3 areas concentrated the most snack stores, which are Downtown Vancouver, Richmond North, and Metrotown. Since we already eliminated low-rating stores at the beginning, the score distribution is showing below:
-
+\
 ![](score.png)
-
+\
 And we can also look at the specific area: In Downtown Vancouver, most stores are rating between 4-5.
 
 \
@@ -57,7 +58,7 @@ Phone: (604) 428-3888
 - In-store pick-up
 - Delivery
 
-![](incognito.png)
+![](incognito.png)\
 Reference: Google Business
 
 
@@ -69,7 +70,7 @@ Phone: (604) 329-6153
 
 - In-store pick-up
 
-![](s174245273974928480_p27_i1_w1334.jpeg)
+![](s174245273974928480_p27_i1_w1334.jpeg)\
 Reference: Google Business
 
 
@@ -80,14 +81,14 @@ Phone: (604) 559-6600
 
 - In-store pick-up
 
-![](Kumme-Cafe_profile.jpg)
+![](Kumme-Cafe_profile.jpg)\
 Reference: Google Business
 
 \
 Going along on No.3 Road in Richmond, hundreds of restaurants are here. Actually, The Night Market which is located at 8351 River Rd, Richmond, BC V6X 1Y4, should be the best for snack lovers, however, hope the Pandemic ends ASAP and we can welcome the Night Market back next Summer!
 
 \
-![](richmond.png)
+![](richmond.png)\
 
 No worries, snack lovers still have a lot options here!
 
@@ -99,7 +100,7 @@ Phone:  (604) 370-0229
 - In-store pick-up
 - Delivery
 
-![](hero2.jpg)
+![](hero2.jpg)\
 Reference: Google Business
 
 
@@ -111,7 +112,7 @@ Phone: (604) 238-7510
 
 - In-store pick-up
 
-![](123792554_2743186919277569_35976548950535313_o.jpg)
+![](123792554_2743186919277569_35976548950535313_o.jpg)\
 Reference: Google Business
 
 
@@ -123,7 +124,7 @@ Phone: (604) 559-6600
 - In-store pick-up
 - Delivery
 
-![](image-49.jpeg)
+![](image-49.jpeg)\
 Reference: Google Business
 
 \
@@ -137,7 +138,7 @@ Phone: (604) 428-4421
 - Delivery
 - Dine in
 
-![](74626977_2781302111902908_5286830739642384384_o_NDY0MD.jpg)
+![](74626977_2781302111902908_5286830739642384384_o_NDY0MD.jpg)\
 Reference: Google Business
 
 
@@ -149,7 +150,7 @@ Phone: (604) 559-7088
 - Delivery
 - Dine in
 
-![](119516471_3460942463953744_6309389200278227092_o.jpg)
+![](119516471_3460942463953744_6309389200278227092_o.jpg)\
 Reference: Google Business
 
 ## Vietnamese: Ba Le Sandwich Shop
@@ -159,7 +160,7 @@ Phone: (604) 875-0088
 - In-store pick-up
 - Delivery
 
-![](20130108-banh-mi-ba-le-dorchester-2.jpg)
+![](20130108-banh-mi-ba-le-dorchester-2.jpg)\
 Reference: Google Business
 
 ## Malaysian: Ipoh Bean Sprout Chicken
@@ -169,7 +170,7 @@ Phone: (604) 442-9208
 - In-store pick-up
 - Delivery
 
-![](ac6f77e9d5e96ec92490d62657cc6342.jpg)
+![](ac6f77e9d5e96ec92490d62657cc6342.jpg)\
 Reference: Google Business
 
 \
