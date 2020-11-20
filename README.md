@@ -1,12 +1,21 @@
-# Pandemic drives you crazy? Take some snacks as Energy Supplyments!
+# Pandemic drives you crazy? Take some snacks as Energy Supplyments! Top street snacks in each city, data from Yelp API.
 
-![street food in Van](giphy.gif)
+![street food in Van](pics/giphy.gif)
 
 \
 Does COVID-19 pandemic affect your life? YES for everyone! It has rapidly made our day to day life, businesses, activities, everything much harder than before, especially for dining! Recently, after a 10-month-long “staying home” life, I am really into street snacks! It’s hard to dine in the restaurants or spend too much time outside, and I found snacks are a perfect choice during the spare time. And this post is just about the BEST street snacks all around metro Vancouver! 
 
 \
 If you are a fan of foods, you’ll find this post could be a guideline for you to eat all over the town! The dataset is from Yelp API, the base dataset includes the following sectors:
+
+```python
+import os
+import requests
+import json
+
+# retrive API credential from enviorment variables
+YELP_APIKEY=os.environ['YELP_APIKEY']
+```
 
 ```python
 url = 'https://api.yelp.com/v3/businesses/search'
@@ -28,25 +37,66 @@ We focused on the Greater Vancouver area for the most and retrieved 50 top-ratin
 
 \
 Example:
-![df](WX20201109-194437@2x.png)
+``` python
+# Get response for each area
+responses=[bby_snack_yelp,rmd_snack_yelp,van_dt_snack_yelp,van_west_snack_yelp]
+
+# add area column and make a dataframe
+business={
+    'name':[],
+    'loc':[],
+    'rating':[],
+    'price':[],
+    'area':[],
+    'categories':[]}
+
+df=pd.DataFrame(data=business,columns=business.keys())
+```
+![df](pics/WX20201109-194437@2x.png)
 
 \
 For each selected store, we have its unique location in latitude and longitude, and we used Google Places API and Python library gmplot to plot a [heatmap](heatmap.html) to look at the distribution virtually.
 
 \
-![heatmap](heatmap.png)
+```python
+# import Google API KEY
+google_apikey=os.environ['GOOGLE_API_KEY']
+
+import gmplot
+
+gmap = gmplot.GoogleMapPlotter(
+        49.2827,-123.1207,10,
+        apikey=google_apikey)
+
+gmap.heatmap(*zip(*list(df['loc'])))
+gmap.draw('heatmap.html')
+```
+![heatmap](pics/heatmap.png)
 \
 Map of top-rated snack locations in Greater Vancouver.
 
 \
 As the above map shows, 3 areas concentrated the most snack stores, which are Downtown Vancouver, Richmond North, and Metrotown. Since we already eliminated low-rating stores at the beginning, the score distribution is showing below:
 \
-![](score.png)
+![](pics/score.png)
 \
 And we can also look at the specific area: In Downtown Vancouver, most stores are rating between 4-5.
 
 \
-![](dt.png)
+``` python
+def filter_loc_by_rat(rat):
+    filtered_df=df[df['rating']==rat]
+    loc=zip(*list(filtered_df['loc']))
+    return loc
+
+gmap.scatter(*filter_loc_by_rat(5),color='red', marker=True)
+gmap.scatter(*filter_loc_by_rat(4.5),color='orange',marker=True)
+gmap.scatter(*filter_loc_by_rat(4),color='orange',marker=True)
+gmap.scatter(*filter_loc_by_rat(3),color='yellow',marker=True)
+gmap.scatter(*filter_loc_by_rat(3.5),color='yellow',marker=True)
+gmap.draw('map.html')
+```
+![](pics/dt.png)
 
 \
  The best ones are:
@@ -58,10 +108,8 @@ Phone: (604) 428-3888
 - In-store pick-up
 - Delivery
 
-![](incognito.png)\
+![](pics/incognito.png)\
 Reference: Google Business
-
-
 
 ## 2. L'atelier Patisserie
 Address: 260 E 5th Ave, Vancouver, BC V5T 1H3\ 
@@ -70,7 +118,7 @@ Phone: (604) 329-6153
 
 - In-store pick-up
 
-![](s174245273974928480_p27_i1_w1334.jpeg)\
+![](pics/s174245273974928480_p27_i1_w1334.jpeg)\
 Reference: Google Business
 
 
@@ -81,14 +129,14 @@ Phone: (604) 559-6600
 
 - In-store pick-up
 
-![](Kumme-Cafe_profile.jpg)\
+![](pics/Kumme-Cafe_profile.jpg)\
 Reference: Google Business
 
 \
 Going along on No.3 Road in Richmond, hundreds of restaurants are here. Actually, The Night Market which is located at 8351 River Rd, Richmond, BC V6X 1Y4, should be the best for snack lovers, however, hope the Pandemic ends ASAP and we can welcome the Night Market back next Summer!
 
 \
-![](richmond.png)\
+![](pics/richmond.png)\
 
 No worries, snack lovers still have a lot options here!
 
@@ -100,7 +148,7 @@ Phone:  (604) 370-0229
 - In-store pick-up
 - Delivery
 
-![](hero2.jpg)\
+![](pics/hero2.jpg)\
 Reference: Google Business
 
 
@@ -112,7 +160,7 @@ Phone: (604) 238-7510
 
 - In-store pick-up
 
-![](123792554_2743186919277569_35976548950535313_o.jpg)\
+![](pics/123792554_2743186919277569_35976548950535313_o.jpg)\
 Reference: Google Business
 
 
@@ -124,7 +172,7 @@ Phone: (604) 559-6600
 - In-store pick-up
 - Delivery
 
-![](image-49.jpeg)\
+![](pics/image-49.jpeg)\
 Reference: Google Business
 
 \
@@ -138,7 +186,7 @@ Phone: (604) 428-4421
 - Delivery
 - Dine in
 
-![](74626977_2781302111902908_5286830739642384384_o_NDY0MD.jpg)\
+![](pics/74626977_2781302111902908_5286830739642384384_o_NDY0MD.jpg)\
 Reference: Google Business
 
 
@@ -150,7 +198,7 @@ Phone: (604) 559-7088
 - Delivery
 - Dine in
 
-![](119516471_3460942463953744_6309389200278227092_o.jpg)\
+![](pics/119516471_3460942463953744_6309389200278227092_o.jpg)\
 Reference: Google Business
 
 ## Vietnamese: Ba Le Sandwich Shop
@@ -160,7 +208,7 @@ Phone: (604) 875-0088
 - In-store pick-up
 - Delivery
 
-![](20130108-banh-mi-ba-le-dorchester-2.jpg)\
+![](pics/20130108-banh-mi-ba-le-dorchester-2.jpg)\
 Reference: Google Business
 
 ## Malaysian: Ipoh Bean Sprout Chicken
@@ -170,7 +218,7 @@ Phone: (604) 442-9208
 - In-store pick-up
 - Delivery
 
-![](ac6f77e9d5e96ec92490d62657cc6342.jpg)\
+![](pics/ac6f77e9d5e96ec92490d62657cc6342.jpg)\
 Reference: Google Business
 
 \
